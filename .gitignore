@@ -35,3 +35,7 @@ psychlog-release/
 out/
 installer/
 *.zip
+runtime-image/
+installer/
+out/
+.idea/
