@@ -18,7 +18,7 @@ jobs:
           curl -L https://download2.gluonhq.com/openjfx/21.0.2/openjfx-21.0.2_windows-x64_bin-sdk.zip -o javafx.zip
           Expand-Archive javafx.zip -DestinationPath .
       - name: Build EXE
-        run: jpackage --input out/artifacts/PsychLog_jar --name PsychLog --main-jar PsychLog.jar --type exe --icon icon.ico --module-path openjfx-21.0.2/lib --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.web
+        run: jpackage --input out/artifacts/PsychLog_jar --name PsychLog --main-jar PsychLog.jar --type exe --icon icon.ico --module-path openjfx-21.0.2/lib --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.media
       - uses: actions/upload-artifact@v4
         with:
           name: windows-installer
@@ -37,7 +37,7 @@ jobs:
           curl -L https://download2.gluonhq.com/openjfx/21.0.2/openjfx-21.0.2_osx-x64_bin-sdk.zip -o javafx.zip
           unzip javafx.zip
       - name: Build DMG
-        run: jpackage --input out/artifacts/PsychLog_jar --name PsychLog --main-jar PsychLog.jar --type dmg --module-path javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.web
+        run: jpackage --input out/artifacts/PsychLog_jar --name PsychLog --main-jar PsychLog.jar --type dmg --module-path javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.media
       - uses: actions/upload-artifact@v4
         with:
           name: mac-installer
