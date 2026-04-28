@@ -26,7 +26,7 @@ jobs:
             --type exe `
             --icon icon.ico `
             --module-path javafx-sdk-21.0.2/lib `
-            --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.media,java.base,java.desktop,java.logging,java.naming,java.net.http,java.sql,java.xml `
+            --add-modules ALL-MODULE-PATH `
             --win-dir-chooser `
             --win-menu `
             --win-shortcut
@@ -58,7 +58,7 @@ jobs:
             --type dmg \
             --icon icon.icns \
             --module-path javafx-sdk-21.0.2/lib \
-            --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.media,java.base,java.desktop,java.logging,java.naming,java.net.http,java.sql,java.xml
+            --add-modules ALL-MODULE-PATH
       - uses: actions/upload-artifact@v4
         with:
           name: mac-installer
