@@ -1,0 +1,36 @@
+﻿name: Build Installers
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - name: Build EXE
+        run: jpackage --input out/artifacts/PsychLog_jar --name PsychLog --main-jar PsychLog.jar --type exe --icon icon.ico
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows-installer
+          path: "*.exe"
+
+  build-mac:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - name: Build DMG
+        run: jpackage --input out/artifacts/PsychLog_jar --name PsychLog --main-jar PsychLog.jar --type dmg
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mac-installer
+          path: "*.dmg"
